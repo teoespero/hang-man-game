@@ -68,7 +68,12 @@ $validReply                               # Stores the player’s response when 
 $rejectList = '~!@#$%^&-_={}]|\:;",.?/<>' # String listing unacceptable input
 $GuessesRemaining                         # Keeps track of the number of guesses the player has left
 
+
 ## Create an Associative array and load it with words
+
+## These are the words that are defined in the game
+## if more wors are needed, the coder can just add them
+## as part of the associative array cluster
 
 $words = @{}
 $words[0] = @("", "", "", "", "", "", "", "", "", "", "", "", "", "", "")
@@ -82,6 +87,10 @@ $words[7] = @("G", "L", "O", "B", "E")
 $words[8] = @("S", "P", "E", "A", "K", "E", "R")
 $words[9] = @("B", "A", "C", "K", "Y", "A", "R", "D")
 $words[10] = @("P", "E", "N", "C", "I", "L")
+$words[11] = @("C", "L", "O", "U", "D")
+
+## get number of words available
+$counter = $words.Count
 
 
 ## Prompt the player to guess a number
@@ -140,7 +149,7 @@ while ($status -eq "True") {
 
     ## Generate a random number between 1 and 10
 
-    $number = $randomNo.Next(1, 11)
+    $number = $randomNo.Next(1, $counter)
     $secretWord = $words[$number] # Populate an array with the letters that
                                   #make up the game's secret word using the
                                   #random number to specify the array index 
